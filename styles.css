@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+/* Style untuk navbar */
+.navbar {
+    background-color: #09e259;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Menyebarkan elemen kiri dan kanan */
+    align-items: center; /* Menyelaraskan vertikal */
+    padding: 0 20px; /* Memberikan ruang pada sisi kiri dan kanan */
+}
+.navbar-logo {
+    display: flex;
+    align-items: center; /* Menyelaraskan logo dan teks secara vertikal */
+}
+.navbar-logo img {
+    height: 80px; /* Ukuran logo */
+    width: auto;
+}
+.navbar-logo span {
+    color: white;
+    margin-left: 10px; /* Memberikan jarak antara logo dan teks */
+    font-size: 18px; /* Ukuran teks */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-radius: 40px;
+}
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+    transition: 0.3s;
+}
+.navbar-links {
+    font-size: 16px;
+}
+
+header {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+main {
+    padding: 10px; /* Kurangi padding untuk ruang lebih efisien */
+}
+
+article {
+    padding: 10px; /* Sesuaikan padding artikel */
+}
+
+img {
+    max-width: 100%; /* Pastikan gambar responsif */
+    height: auto;
+    border-radius: 5px; /* Beri sudut bulat */
+}
+
+article {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+figure {
+    margin: 20px 0;
+    text-align: center;
+}
+
+img {
+    max-width: 60px;
+    height: auto;
+    border-radius: 5px;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 8px;
+    color: #555;
+}

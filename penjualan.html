@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Website E-Commerce Sederhana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo h1 {
+            font-size: 1.5em;
+        }
+
+        nav .cart button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .cart-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .cart-content ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .cart-content button {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>ShopOnline</h1>
+            </div>
+            <div class="cart">
+                <button onclick="openCart()">Keranjang (0)</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>Produk Kami</h2>
+            <div class="product-item">
+                <img src="https://via.placeholder.com/150" alt="Produk 1">
+                <h3>Produk 1</h3>
+                <p>Rp 100.000</p>
+                <button onclick="addToCart('Produk 1', 100000)">Tambah ke Keranjang</button>
+            </div>
+            <div class="product-item">
+                <img src="https://via.placeholder.com/150" alt="Produk 2">
+                <h3>Produk 2</h3>
+                <p>Rp 150.000</p>
+                <button onclick="addToCart('Produk 2', 150000)">Tambah ke Keranjang</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h3>Keranjang Belanja</h3>
+            <ul id="cart-items">
+                <!-- Barang-barang yang ditambahkan akan tampil di sini -->
+            </ul>
+            <button onclick="closeCart()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            updateCartCount();
+            updateCartItems();
+        }
+
+        function updateCartCount() {
+            const cartButton = document.querySelector('.cart button');
+            cartButton.innerText = `Keranjang (${cart.length})`;
+        }
+
+        function updateCartItems() {
+            const cartItemsList = document.getElementById('cart-items');
+            cartItemsList.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = `${item.productName} - Rp ${item.price.toLocaleString()}`;
+                cartItemsList.appendChild(li);
+            });
+        }
+
+        function openCart() {
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
